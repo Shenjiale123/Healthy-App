@@ -1,0 +1,24 @@
+# Dependencies and local toolchains
+node_modules/
+tools/
+
+# Android/Gradle generated files
+.gradle/
+android/.gradle/
+android/local.properties
+android/**/build/
+android/captures/
+*.iml
+
+# Editor and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Runtime logs
+*.log
+
+# Old generated packages (keep the current generic APK)
+养成营养记录-Android-v*.apk
+

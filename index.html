@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#102a2a" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <title>养成 · 营养记录</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand"><span class="brand-mark">◒</span><span>养成</span></div>
+        <div class="profile-mini"><div class="avatar" id="side-avatar">林</div><div><strong id="side-name">林晓</strong><small id="side-email">今日也要好好吃饭</small></div><button class="icon-btn" aria-label="设置" data-tab="profile">⚙</button></div>
+        <nav class="side-nav">
+          <button class="nav-item active" data-tab="today"><span>⌂</span>今日概览</button>
+          <button class="nav-item" data-tab="foods"><span>◉</span>食物库</button>
+          <button class="nav-item" data-tab="history"><span>◷</span>历史记录</button>
+          <button class="nav-item" data-tab="profile"><span>◎</span>我的目标</button>
+        </nav>
+        <div class="sidebar-foot"><div class="leaf">✦</div><p>小小记录，<br/><strong>让身体更有力量。</strong></p></div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar"><div><p class="eyebrow">周三 · 2026年10月16日</p><h1 id="page-title">今日概览</h1></div><div class="top-actions"><button class="date-pill" id="date-button">‹ &nbsp; 今日 &nbsp; ›</button><button class="avatar top-avatar">林</button></div></header>
+
+        <section id="today-view" class="view active-view">
+          <div class="hero-row">
+            <div class="hero-copy"><span class="status-dot"></span><span id="goal-label">基础营养 · 维持体重</span><h2>今天的身体，<em>值得被好好照顾。</em></h2><p>你已经完成了今天蛋白质目标的 <strong id="protein-percent-text">42%</strong>，继续保持。</p></div>
+            <div class="hero-illustration"><div class="plate"><span>🥗</span></div><span class="spark s1">✦</span><span class="spark s2">✧</span><span class="spark s3">·</span></div>
+          </div>
+
+          <div class="metrics-grid">
+            <article class="metric-card protein-card"><div class="metric-head"><div><span class="metric-icon">P</span><span>蛋白质</span></div><button class="more-btn">···</button></div><div class="metric-value"><strong id="protein-total">54</strong><span>/ <b id="protein-goal">128</b> g</span></div><div class="progress"><i id="protein-progress"></i></div><div class="metric-foot"><span>还差 <b id="protein-left">74g</b></span><span class="trend up">↗ 目标很稳</span></div></article>
+            <article class="metric-card"><div class="metric-head"><div><span class="metric-icon carb">C</span><span>碳水</span></div><button class="more-btn">···</button></div><div class="metric-value"><strong id="carb-total">96</strong><span>/ <b id="carb-goal">240</b> g</span></div><div class="progress purple"><i id="carb-progress"></i></div><div class="metric-foot"><span>还差 <b id="carb-left">144g</b></span><span>合理范围</span></div></article>
+            <article class="metric-card"><div class="metric-head"><div><span class="metric-icon fiber">F</span><span>膳食纤维</span></div><button class="more-btn">···</button></div><div class="metric-value"><strong id="fiber-total">12</strong><span>/ <b>25</b> g</span></div><div class="progress orange"><i id="fiber-progress"></i></div><div class="metric-foot"><span>还差 <b id="fiber-left">13g</b></span><span>多吃蔬菜</span></div></article>
+          </div>
+
+          <div class="content-grid">
+            <section class="panel nutrient-panel"><div class="panel-title"><div><span class="eyebrow">MICRONUTRIENTS</span><h3>维生素与矿物质</h3></div><button class="text-btn" data-tab="profile">查看目标 →</button></div><div class="nutrient-list" id="micronutrient-list"></div></section>
+            <section class="panel add-panel"><div class="panel-title"><div><span class="eyebrow">QUICK ADD</span><h3>快速记录</h3></div><button class="round-add" id="open-custom">＋</button></div><div class="food-chips" id="quick-foods"></div><button class="primary-btn full" id="open-foods">＋ 添加自定义食物</button></section>
+          </div>
+          <section class="panel meals-panel"><div class="panel-title"><div><span class="eyebrow">TODAY'S MEALS</span><h3>今日饮食</h3></div><span class="meal-count" id="meal-count">3 餐</span></div><div id="meal-list"></div></section>
+        </section>
+
+        <section id="foods-view" class="view"><div class="section-intro"><div><span class="eyebrow">FOOD LIBRARY</span><h2>常见食物库</h2><p>常见份量为估算值，包装食品优先以实物标签为准。</p></div><button class="primary-btn" id="open-custom-2">＋ 自定义食物</button></div><div class="record-date-banner hidden" id="record-date-banner"><div><strong id="record-date-title"></strong><small>选择下方食物并填写份数，保存后自动返回历史记录。</small></div><button id="cancel-history-add">取消</button></div><div class="category-tabs" id="category-tabs"></div><div class="search-box">⌕ <input id="food-search" placeholder="搜索鸡蛋、牛奶、米饭……" /></div><div class="food-grid" id="food-grid"></div></section>
+        <section id="history-view" class="view"><div class="section-intro"><div><span class="eyebrow">YOUR RHYTHM</span><h2>历史记录</h2><p>回看长期摄入趋势，并补记、修改或备份每日数据。</p></div><div class="data-actions"><label class="backfill-control">补记日期<input type="date" id="backfill-date-input" /></label><button class="secondary-btn" id="export-csv">导出 CSV</button><button class="secondary-btn" id="export-json">备份数据</button><button class="primary-btn" id="import-json">导入备份</button><input type="file" id="import-file" accept="application/json,.json" hidden /></div></div><div class="panel chart-panel"><div class="panel-title"><div><span class="eyebrow">PROTEIN INTAKE</span><h3>近 7 天蛋白质</h3></div><span class="chart-legend"><i></i>摄入量</span></div><div class="bar-chart"><div class="y-labels"><span>150g</span><span>100g</span><span>50g</span><span>0</span></div><div class="bars" id="bars"></div></div></div><div class="history-cards" id="history-cards"></div></section>
+        <section id="profile-view" class="view"><div class="section-intro"><div><span class="eyebrow">YOUR TARGET</span><h2>我的目标</h2><p>根据你的身体参数和阶段，自动生成每日营养目标。</p></div><div><button class="secondary-btn" id="logout-btn">退出登录</button><button class="primary-btn" id="save-profile">保存设置</button></div></div><div class="profile-grid"><div class="panel form-panel"><div class="panel-title"><div><span class="eyebrow">ACCOUNT</span><h3>个人信息</h3></div></div><label>昵称<input type="text" id="name-input" value="林晓" maxlength="20" /></label><label>邮箱<input type="email" id="email-input" placeholder="you@example.com" /></label><label>性别<select id="sex-input"><option>不透露</option><option>女</option><option>男</option></select></label><div class="panel-title account-title"><div><span class="eyebrow">BODY INFO</span><h3>身体参数</h3></div></div><label>当前体重（kg）<input type="number" id="weight-input" value="64" min="30" max="250" /></label><label>身高（cm）<input type="number" id="height-input" value="168" min="100" max="230" /></label><label>年龄<input type="number" id="age-input" value="28" min="12" max="100" /></label><label>活动阶段<select id="activity-select"><option value="0.9">基础营养 · 0.8–1.0 g/kg</option><option value="1.1" selected>规律健身 · 1.0–1.2 g/kg</option><option value="1.5">增肌训练 · 1.4–1.6 g/kg</option><option value="1.8">高强度训练 · 1.6–2.0 g/kg</option></select></label></div><div class="panel target-panel"><div class="panel-title"><div><span class="eyebrow">DAILY TARGET</span><h3>你的每日目标</h3></div><span class="target-badge">动态计算</span></div><div class="target-big"><strong id="target-protein">70</strong><span>g 蛋白质<br/><small>建议范围 <b id="target-range">64–77g</b></small></span></div><div class="target-stats"><div><span>碳水</span><b id="target-carb">240g</b></div><div><span>膳食纤维</span><b>25g</b></div><div><span>饮水</span><b>2,000ml</b></div></div><div class="note">⚕ 参考 WHO、DRIs 及中国居民膳食指南。营养目标仅作日常记录参考，特殊疾病或孕期请咨询专业医生。</div></div></div></section>
+      </main>
+    </div>
+
+    <div class="bottom-nav"><button class="active" data-tab="today">⌂<span>今日</span></button><button data-tab="foods">◉<span>食物</span></button><button class="center-add" id="bottom-add">＋</button><button data-tab="history">◷<span>历史</span></button><button data-tab="profile">◎<span>我的</span></button></div>
+    <div class="modal-backdrop" id="modal"><div class="modal"><button class="modal-close" id="close-modal">×</button><span class="eyebrow">ADD FOOD</span><h3>记录一份食物</h3><div class="modal-food" id="modal-food-info"></div><label>份量（份）<input type="number" id="serving-input" value="1" min="0.1" step="0.1" /></label><button class="primary-btn full" id="confirm-add">加入今日饮食</button></div></div>
+    <div class="auth-backdrop" id="auth-gate"><div class="auth-card"><div class="brand auth-brand"><span class="brand-mark">◒</span><span>养成</span></div><span class="eyebrow">YOUR PRIVATE NUTRITION SPACE</span><h2 id="auth-title">欢迎回来</h2><p id="auth-subtitle">登录后同步你的营养目标和每日记录</p><label>邮箱<input type="email" id="auth-email" placeholder="you@example.com" autocomplete="email" /></label><label>密码<input type="password" id="auth-password" placeholder="至少 6 位" autocomplete="current-password" /></label><label id="auth-name-label" class="hidden">昵称<input type="text" id="auth-name" placeholder="怎么称呼你？" /></label><button class="primary-btn full" id="auth-submit">登录</button><button class="link-btn" id="auth-toggle">还没有账号？注册一个</button><small class="auth-note">账号仅保存在此设备浏览器中，不会上传。</small></div></div>
+    <script src="app.js"></script>
+    <script>if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('sw.js'));</script>
+  </body>
+</html>

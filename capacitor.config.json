@@ -1,0 +1,8 @@
+{
+  "appId": "com.yangcheng.nutrition",
+  "appName": "养成",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}
