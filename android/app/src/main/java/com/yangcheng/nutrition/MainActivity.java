@@ -14,7 +14,7 @@ public class MainActivity extends BridgeActivity {
             // A versioned same-origin URL bypasses any stale navigation entry
             // while retaining localStorage from previous installed versions.
             this.bridge.getWebView().post(() ->
-                this.bridge.getWebView().loadUrl("https://localhost/?v=35")
+                this.bridge.getWebView().loadUrl("https://localhost/?v=36")
             );
         }
     }
